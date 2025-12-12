@@ -235,72 +235,6 @@
             transform: scaleX(1);
         }
 
-        .card-img-container {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, #E0F7F7 0%, #B2E8E8 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover .card-img-container img {
-            transform: scale(1.05);
-        }
-
-        /* Video Styles */
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio Standard */
-            background: #000;
-            border-top: 2px solid var(--primary-light);
-            border-bottom: 2px solid var(--primary-light);
-            overflow: hidden;
-        }
-
-        .video-wrapper.shorts-ratio {
-            padding-top: 177.77%; /* 9:16 Aspect Ratio */
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .video-wrapper iframe {
-            transform: scale(1.02);
-        }
-
-        .video-label {
-            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
-            color: #fff;
-            font-size: 0.75rem;
-            text-align: center;
-            padding: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            position: relative;
-        }
-
-        .video-label::before {
-            content: '▶';
-            margin-right: 6px;
-            color: var(--primary);
-        }
-
         .card-content {
             padding: 24px;
         }
@@ -353,6 +287,32 @@
             font-weight: 700;
             color: var(--primary-dark);
             display: inline;
+        }
+
+        .video-link {
+            display: inline-block;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            padding: 10px 16px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 166, 166, 0.2);
+        }
+
+        .video-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 166, 166, 0.3);
+            background: linear-gradient(135deg, #00B8B8 0%, #007A85 100%);
+        }
+
+        .video-link::before {
+            content: '▶ ';
+            margin-right: 6px;
         }
 
         /* Footer */
@@ -509,66 +469,48 @@
                 
                 <!-- Copenhagen Adduction -->
                 <article class="card">
-                    <div class="card-img-container">
-                        <img src="https://image.pollinations.ai/prompt/man%20doing%20copenhagen%20adduction%20plank%20exercise%20gym%20side%20plank%20on%20bench?nologos=true" alt="Copenhagen Adduction" loading="lazy">
-                    </div>
-                    <div class="video-label">Padrão Ouro (Protocolo Aspetar)</div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/gkspeKkEu6k" title="Copenhagen Adduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="exercise-title">Copenhagen Adduction</div>
                             <div class="reps-badge">Até a falha (Dor ≤ 2)</div>
                         </div>
+                        <a href="https://www.youtube.com/watch?v=gkspeKkEu6k" target="_blank" rel="noopener noreferrer" class="video-link">Assistir Vídeo Demonstrativo</a>
                         <div class="instructions">
-                            <strong>Posição:</strong> Prancha lateral com a perna de cima apoiada em um banco/cadeira e a de baixo livre.
-                            <strong>Movimento:</strong> Suba o quadril e a perna de baixo até encostar na de cima. Mantenha o corpo alinhado.
-                            <strong>Atenção:</strong> Exercício intenso. Se for muito difícil, apoie o joelho em vez do pé (alavanca curta).
+                            <strong>Posição Inicial:</strong> Fique em <span class="keyword">prancha lateral</span> com a perna de cima apoiada em um <span class="keyword">banco ou cadeira</span> e a perna de baixo livre, sem apoio. O <span class="keyword">antebraço</span> deve estar apoiado no chão, com o cotovelo diretamente abaixo do ombro. Mantenha o corpo em <span class="keyword">linha reta</span> dos pés até a cabeça.
+                            <strong>Execução:</strong> Contraia os <span class="keyword">adutores</span> da perna de baixo e eleve o <span class="keyword">quadril</span>, levantando a perna de baixo até que ela encontre ou ultrapasse a altura da perna de cima. Mantenha o corpo <span class="keyword">alinhado</span> durante todo o movimento. Sustente a posição no topo por um segundo, sentindo o trabalho intenso nos adutores. Desça de forma controlada até a posição inicial.
+                            <strong>Dicas:</strong> Este é um exercício <span class="keyword">intenso</span> e avançado. Se for muito difícil, comece com a <span class="keyword">alavanca curta</span> (apoie o joelho em vez do pé). A dor deve ser <span class="keyword">≤ 2/10</span>. Se for maior, reduza a amplitude ou use a variação mais fácil. O objetivo é chegar próximo à <span class="keyword">falha muscular</span> mantendo a dor controlada.
                         </div>
                     </div>
                 </article>
 
                 <!-- Adução com Elástico -->
                 <article class="card">
-                    <div class="card-img-container">
-                        <img src="https://image.pollinations.ai/prompt/man%20standing%20doing%20hip%20adduction%20with%20resistance%20band%20gym?nologos=true" alt="Hip Adduction Elastic" loading="lazy">
-                    </div>
-                    <div class="video-label">Vídeo Demonstrativo (Shorts)</div>
-                    <div class="video-wrapper shorts-ratio">
-                        <iframe src="https://www.youtube.com/embed/taJHe5HwnUI" title="Standing Hip Adduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="exercise-title">Adução com Elástico (Carga)</div>
                             <div class="reps-badge">10 a 15 RM</div>
                         </div>
+                        <a href="https://www.youtube.com/watch?v=taJHe5HwnUI" target="_blank" rel="noopener noreferrer" class="video-link">Assistir Vídeo Demonstrativo</a>
                         <div class="instructions">
-                            <strong>Posição:</strong> Em pé, elástico preso ao tornozelo da perna que vai mover.
-                            <strong>Movimento:</strong> Puxe a perna para dentro (cruzando a frente da outra) de forma explosiva (rápida) e volte devagar (3 segundos).
-                            <strong>Progresso:</strong> Aumente a tensão do elástico até conseguir fazer no máximo 10-15 repetições com boa forma.
+                            <strong>Posição Inicial:</strong> Fique em pé, com o <span class="keyword">elástico</span> preso ao <span class="keyword">tornozelo</span> da perna que vai trabalhar. O elástico deve estar ancorado em um ponto fixo ao seu lado. Mantenha o <span class="keyword">tronco ereto</span> e o <span class="keyword">abdômen contraído</span>. A perna de apoio deve estar levemente flexionada para estabilidade.
+                            <strong>Execução:</strong> Contraia os <span class="keyword">adutores</span> e puxe a perna para dentro de forma <span class="keyword">explosiva</span> (movimento rápido, < 1 segundo), cruzando a frente da outra perna. O movimento deve ser realizado apenas pelo <span class="keyword">quadril</span>, mantendo o tronco estável. Retorne à posição inicial de forma <span class="keyword">lenta e controlada</span> (aproximadamente 3 segundos), sentindo o alongamento dos adutores. O movimento de ida deve ser <span class="keyword">rápido</span> e o de volta <span class="keyword">lento</span>.
+                            <strong>Dicas:</strong> Aumente a <span class="keyword">tensão do elástico</span> progressivamente até conseguir fazer no máximo <span class="keyword">10-15 repetições</span> com boa forma técnica. Este é o conceito de <span class="keyword">RM (Repetição Máxima)</span>. A dor deve ser <span class="keyword">≤ 2/10</span>. Se conseguir fazer mais de 15 repetições facilmente, aumente a resistência do elástico.
                         </div>
                     </div>
                 </article>
 
                 <!-- Flexão de Quadril -->
                 <article class="card">
-                    <div class="card-img-container">
-                        <img src="https://image.pollinations.ai/prompt/man%20doing%20standing%20hip%20flexion%20exercise%20resistance%20band?nologos=true" alt="Hip Flexion Elastic" loading="lazy">
-                    </div>
-                    <div class="video-label">Vídeo Demonstrativo</div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/U7KaLsN3uE8" title="Hip Flexion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="exercise-title">Flexão de Quadril com Elástico</div>
                             <div class="reps-badge">3 x 15 reps</div>
                         </div>
+                        <a href="https://www.youtube.com/watch?v=U7KaLsN3uE8" target="_blank" rel="noopener noreferrer" class="video-link">Assistir Vídeo Demonstrativo</a>
                         <div class="instructions">
-                            <strong>Posição:</strong> Em pé, de costas para onde o elástico está preso. Elástico no tornozelo.
-                            <strong>Movimento:</strong> Chute o joelho para frente e para cima (como uma marcha alta).
-                            <strong>Atenção:</strong> Mantenha o tronco firme, não incline para trás.
+                            <strong>Posição Inicial:</strong> Fique em pé, de <span class="keyword">costas</span> para onde o elástico está preso. O <span class="keyword">elástico</span> deve estar preso ao <span class="keyword">tornozelo</span> da perna que vai trabalhar. Mantenha o <span class="keyword">tronco ereto</span>, ombros relaxados e o peso do corpo na perna de apoio.
+                            <strong>Execução:</strong> Contraia os <span class="keyword">flexores do quadril</span> e eleve o joelho para frente e para cima, como uma <span class="keyword">marcha alta</span> ou movimento de corrida. O joelho deve subir até aproximadamente a altura do quadril ou um pouco acima. Mantenha o <span class="keyword">tronco firme</span> e estável durante todo o movimento. Retorne a perna à posição inicial de forma controlada, sentindo o alongamento dos flexores.
+                            <strong>Dicas:</strong> Mantenha o <span class="keyword">tronco ereto</span> - não incline para trás durante o movimento. O trabalho deve ser sentido principalmente nos <span class="keyword">flexores do quadril</span> (psoas, ilíaco). Se sentir compensação na coluna lombar, reduza a amplitude do movimento. Mantenha a <span class="keyword">respiração fluida</span> durante todo o exercício.
                         </div>
                     </div>
                 </article>
@@ -587,66 +529,48 @@
 
                 <!-- Tension Arc / Kicking -->
                 <article class="card">
-                    <div class="card-img-container">
-                        <img src="https://image.pollinations.ai/prompt/soccer%20player%20doing%20kicking%20exercise%20with%20resistance%20band%20gym?nologos=true" alt="Kicking Exercise" loading="lazy">
-                    </div>
-                    <div class="video-label">Vídeo Demonstrativo (Similiar)</div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/X98k60Ny_CE" title="Kicking Exercise" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="exercise-title">Tension Arc (Chute com Elástico)</div>
                             <div class="reps-badge">3 x 15 (Velocidade)</div>
                         </div>
+                        <a href="https://www.youtube.com/watch?v=X98k60Ny_CE" target="_blank" rel="noopener noreferrer" class="video-link">Assistir Vídeo Demonstrativo</a>
                         <div class="instructions">
-                            <strong>Posição:</strong> Em pé, elástico no tornozelo.
-                            <strong>Movimento:</strong> Realize um movimento de chute para frente/diagonal RÁPIDO (< 1 segundo) e volte controlando devagar (3 segundos).
-                            <strong>Foco:</strong> Potência. O movimento de ida deve ser explosivo, como um chute real.
+                            <strong>Posição Inicial:</strong> Fique em pé, com o <span class="keyword">elástico</span> preso ao <span class="keyword">tornozelo</span> da perna que vai trabalhar. O elástico deve estar ancorado atrás de você. Mantenha o <span class="keyword">tronco ereto</span> e o <span class="keyword">abdômen contraído</span>. A perna de apoio deve estar levemente flexionada para estabilidade.
+                            <strong>Execução:</strong> Realize um movimento de <span class="keyword">chute</span> para frente ou diagonal de forma <span class="keyword">explosiva e rápida</span> (< 1 segundo), como se estivesse chutando uma bola. O movimento deve ser realizado principalmente pelo <span class="keyword">quadril</span> e <span class="keyword">joelho</span>, mantendo o tronco estável. Retorne à posição inicial de forma <span class="keyword">lenta e controlada</span> (aproximadamente 3 segundos), sentindo o alongamento e a resistência do elástico.
+                            <strong>Dicas:</strong> O foco deste exercício é a <span class="keyword">potência</span> e <span class="keyword">velocidade</span>. O movimento de ida deve ser <span class="keyword">explosivo</span>, simulando um chute real no esporte. A fase de retorno deve ser controlada para trabalhar também a <span class="keyword">força excêntrica</span>. Mantenha o <span class="keyword">tronco estável</span> - não balance o corpo durante o movimento. A dor deve ser <span class="keyword">≤ 2/10</span>.
                         </div>
                     </div>
                 </article>
 
                 <!-- Abdominal Twist -->
                 <article class="card">
-                    <div class="card-img-container">
-                        <img src="https://image.pollinations.ai/prompt/man%20doing%20standing%20core%20twist%20resistance%20band%20exercise?nologos=true" alt="Abdominal Twist" loading="lazy">
-                    </div>
-                    <div class="video-label">Vídeo Demonstrativo</div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/D_HQMvbveG4" title="Abdominal Twist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="exercise-title">Torção de Tronco (Twist)</div>
                             <div class="reps-badge">3 x 20 reps</div>
                         </div>
+                        <a href="https://www.youtube.com/watch?v=D_HQMvbveG4" target="_blank" rel="noopener noreferrer" class="video-link">Assistir Vídeo Demonstrativo</a>
                         <div class="instructions">
-                            <strong>Posição:</strong> Em pé, de lado para o elástico, segurando com as duas mãos na altura do peito.
-                            <strong>Movimento:</strong> Gire o tronco para o lado oposto ao elástico, mantendo o quadril estável.
-                            <strong>Atenção:</strong> Braços levemente flexionados. O movimento vem do abdômen, não só dos braços.
+                            <strong>Posição Inicial:</strong> Fique em pé, de <span class="keyword">lado</span> para onde o elástico está preso. Segure o elástico com as <span class="keyword">duas mãos</span> na altura do <span class="keyword">peito</span>, mantendo os braços levemente flexionados. Os pés devem estar afastados na largura do <span class="keyword">quadril</span>, com o peso distribuído igualmente. Mantenha o <span class="keyword">quadril estável</span> e o <span class="keyword">abdômen contraído</span>.
+                            <strong>Execução:</strong> Gire o <span class="keyword">tronco</span> para o lado oposto ao elástico, mantendo o <span class="keyword">quadril</span> e os <span class="keyword">pés</span> estáveis. O movimento deve ser realizado principalmente pelo <span class="keyword">abdômen</span> e <span class="keyword">oblíquos</span>, não apenas pelos braços. Gire até sentir o trabalho no <span class="keyword">core</span>, mantendo os braços como extensão do movimento. Retorne à posição inicial de forma controlada.
+                            <strong>Dicas:</strong> Mantenha os <span class="keyword">braços levemente flexionados</span> - eles são apenas uma extensão do movimento. O trabalho deve ser sentido no <span class="keyword">abdômen</span> e <span class="keyword">oblíquos</span>, não só nos braços. Mantenha o <span class="keyword">quadril estável</span> - não deixe ele rotacionar junto com o tronco. O movimento deve ser <span class="keyword">controlado</span>, especialmente na fase de retorno.
                         </div>
                     </div>
                 </article>
 
                 <!-- One Leg Coordination -->
                 <article class="card">
-                    <div class="card-img-container">
-                        <img src="https://image.pollinations.ai/prompt/man%20doing%20single%20leg%20coordination%20exercise%20balance%20gym?nologos=true" alt="Single Leg Coordination" loading="lazy">
-                    </div>
-                    <div class="video-label">Vídeo Demonstrativo (Conceito)</div>
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/eyz2Kv0dLm0" title="Single Leg Balance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                     <div class="card-content">
                         <div class="card-header">
                             <div class="exercise-title">Coordenação Unipodal ("Ski")</div>
                             <div class="reps-badge">3 x 1 min</div>
                         </div>
+                        <a href="https://www.youtube.com/watch?v=eyz2Kv0dLm0" target="_blank" rel="noopener noreferrer" class="video-link">Assistir Vídeo Demonstrativo</a>
                         <div class="instructions">
-                            <strong>Posição:</strong> Apoio em uma perna só, joelho levemente flexionado.
-                            <strong>Movimento:</strong> Simule o movimento de corrida ou esqui cross-country (braço e perna oposta balançando) enquanto mantém o equilíbrio na perna de base.
-                            <strong>Desafio:</strong> Tente manter o ritmo fluido sem tocar o pé livre no chão.
+                            <strong>Posição Inicial:</strong> Fique em pé, apoiado em <span class="keyword">uma perna só</span>, com o joelho levemente flexionado. A outra perna deve estar elevada, sem tocar o chão. Mantenha o <span class="keyword">tronco ereto</span>, ombros relaxados e olhar para frente. Os braços devem estar ao longo do corpo.
+                            <strong>Execução:</strong> Mantenha o <span class="keyword">equilíbrio</span> sobre a perna de apoio. Simule o movimento de <span class="keyword">corrida</span> ou <span class="keyword">esqui cross-country</span>: mova o braço direito para frente enquanto a perna esquerda (livre) vai para trás, e vice-versa. O movimento deve ser <span class="keyword">fluido e coordenado</span>, mantendo o ritmo constante. A perna de apoio deve permanecer estável, com o joelho levemente flexionado.
+                            <strong>Dicas:</strong> Tente manter o <span class="keyword">ritmo fluido</span> sem tocar o pé livre no chão. O movimento deve simular a <span class="keyword">coordenação</span> necessária no esporte. Se sentir dificuldade no equilíbrio, comece com movimentos menores e aumente a amplitude gradualmente. O objetivo é melhorar a <span class="keyword">coordenação</span> e o <span class="keyword">controle motor</span> em condições unipodais, preparando para o retorno ao esporte.
                         </div>
                     </div>
                 </article>
