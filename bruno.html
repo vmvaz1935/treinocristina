@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Aspetar - Pace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00A6A6;
+            --primary-dark: #006D77;
+            --primary-light: #E0F7F7;
+            --bg-light: #F8FAFB;
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-light: #6B7280;
+            --alert-bg: #FEF3C7;
+            --alert-text: #92400E;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --gradient: linear-gradient(135deg, #00A6A6 0%, #006D77 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #F8FAFB 0%, #E8F4F5 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-bottom: 40px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 3px solid var(--primary);
+            padding: 24px 20px;
+            box-shadow: 0 2px 10px rgba(0, 166, 166, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo h1 {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .patient-info {
+            text-align: right;
+        }
+
+        .patient-name {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .diagnosis {
+            font-size: 0.875rem;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 6px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 166, 166, 0.2);
+        }
+
+        /* Disclaimer Section */
+        .safety-banner {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            color: var(--alert-text);
+            padding: 18px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #FCD34D;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(146, 64, 14, 0.1);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .intro-text {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            border-left: 6px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .intro-text:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0, 166, 166, 0.15);
+        }
+
+        .intro-text h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .intro-text ul {
+            margin-top: 16px;
+        }
+
+        .intro-text li {
+            margin-bottom: 8px;
+            padding-left: 8px;
+        }
+
+        .section-title {
+            color: var(--primary-dark);
+            font-size: 1.75rem;
+            margin: 50px 0 30px 0;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .badge-a {
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 166, 166, 0.3);
+        }
+
+        .badge-b {
+            background: linear-gradient(135deg, #006D77 0%, #004A52 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 109, 119, 0.3);
+        }
+
+        /* Exercise Grid */
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        /* Exercise Card */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 166, 166, 0.1);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0, 166, 166, 0.3);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #E0F7F7 0%, #B2E8E8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        /* Video Styles */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio Standard */
+            background: #000;
+            border-top: 2px solid var(--primary-light);
+            border-bottom: 2px solid var(--primary-light);
+            overflow: hidden;
+        }
+
+        .video-wrapper.shorts-ratio {
+            padding-top: 177.77%; /* 9:16 Aspect Ratio */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .video-wrapper iframe {
+            transform: scale(1.02);
+        }
+
+        .video-label {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+            color: #fff;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .video-label::before {
+            content: '▶';
+            margin-right: 6px;
+            color: var(--primary);
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        .exercise-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .reps-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 0.875rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+            border: 2px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 166, 166, 0.15);
+        }
+
+        .instructions {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .instructions strong {
+            color: var(--text-dark);
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .instructions .keyword {
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: inline;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 48px 24px;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .footer-content p {
+            font-size: 1rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .footer-content strong {
+            font-weight: 700;
+            opacity: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .patient-info {
+                text-align: center;
+            }
+            .exercise-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .intro-text {
+                padding: 24px;
+            }
+            .card-content {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            main {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            .exercise-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+    <!-- Aviso de Segurança Superior -->
+    <div class="safety-banner">
+        <strong>⚠️ Protocolo Avançado:</strong> Respeite o limite de dor de <strong>2/10</strong>. Se houver dor maior que 2, reduza a carga imediatamente.
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Clínica <span>Pace</span></h1>
+                <p style="font-size: 0.9rem; color: #666;">Fisioterapia Esportiva</p>
+            </div>
+            <div class="patient-info">
+                <div class="patient-name">Paciente: Bruno</div>
+                <div class="diagnosis">Reabilitação de Adutores (Protocolo Aspetar)</div>
+                <div style="font-size: 0.85rem; color: #888; margin-top: 2px;">Ft. Vitor da Mata Vaz</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Introdução -->
+        <section class="intro-text">
+            <h2 style="color: var(--primary-dark); margin-bottom: 10px;">Fases Finais (3 e 4) - Aspetar</h2>
+            <p>O foco agora é <strong>carga e velocidade</strong>. O objetivo é preparar o músculo para o esporte.</p>
+            <br>
+            <ul style="padding-left: 20px;">
+                <li><strong>Regra de Ouro (2/10):</strong> Realize os exercícios com dor mínima (até 2 numa escala de 0 a 10). Se a dor for 0, aumente a dificuldade.</li>
+                <li><strong>Fadiga:</strong> Busque chegar próximo à falha muscular nas repetições indicadas (10RM a 15RM).</li>
+            </ul>
+        </section>
+
+        <!-- TREINO DE FORÇA E CARGA -->
+        <section id="fase-3">
+            <div class="section-title">
+                <span class="badge-a">FORÇA</span>
+                <h2>Carga e Resistência</h2>
+            </div>
+
+            <div class="exercise-grid">
+                
+                <!-- Copenhagen Adduction -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://image.pollinations.ai/prompt/man%20doing%20copenhagen%20adduction%20plank%20exercise%20gym%20side%20plank%20on%20bench?nologos=true" alt="Copenhagen Adduction" loading="lazy">
+                    </div>
+                    <div class="video-label">Padrão Ouro (Protocolo Aspetar)</div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/gkspeKkEu6k" title="Copenhagen Adduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="exercise-title">Copenhagen Adduction</div>
+                            <div class="reps-badge">Até a falha (Dor ≤ 2)</div>
+                        </div>
+                        <div class="instructions">
+                            <strong>Posição:</strong> Prancha lateral com a perna de cima apoiada em um banco/cadeira e a de baixo livre.
+                            <strong>Movimento:</strong> Suba o quadril e a perna de baixo até encostar na de cima. Mantenha o corpo alinhado.
+                            <strong>Atenção:</strong> Exercício intenso. Se for muito difícil, apoie o joelho em vez do pé (alavanca curta).
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Adução com Elástico -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://image.pollinations.ai/prompt/man%20standing%20doing%20hip%20adduction%20with%20resistance%20band%20gym?nologos=true" alt="Hip Adduction Elastic" loading="lazy">
+                    </div>
+                    <div class="video-label">Vídeo Demonstrativo (Shorts)</div>
+                    <div class="video-wrapper shorts-ratio">
+                        <iframe src="https://www.youtube.com/embed/taJHe5HwnUI" title="Standing Hip Adduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="exercise-title">Adução com Elástico (Carga)</div>
+                            <div class="reps-badge">10 a 15 RM</div>
+                        </div>
+                        <div class="instructions">
+                            <strong>Posição:</strong> Em pé, elástico preso ao tornozelo da perna que vai mover.
+                            <strong>Movimento:</strong> Puxe a perna para dentro (cruzando a frente da outra) de forma explosiva (rápida) e volte devagar (3 segundos).
+                            <strong>Progresso:</strong> Aumente a tensão do elástico até conseguir fazer no máximo 10-15 repetições com boa forma.
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Flexão de Quadril -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://image.pollinations.ai/prompt/man%20doing%20standing%20hip%20flexion%20exercise%20resistance%20band?nologos=true" alt="Hip Flexion Elastic" loading="lazy">
+                    </div>
+                    <div class="video-label">Vídeo Demonstrativo</div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/U7KaLsN3uE8" title="Hip Flexion" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="exercise-title">Flexão de Quadril com Elástico</div>
+                            <div class="reps-badge">3 x 15 reps</div>
+                        </div>
+                        <div class="instructions">
+                            <strong>Posição:</strong> Em pé, de costas para onde o elástico está preso. Elástico no tornozelo.
+                            <strong>Movimento:</strong> Chute o joelho para frente e para cima (como uma marcha alta).
+                            <strong>Atenção:</strong> Mantenha o tronco firme, não incline para trás.
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- TREINO DE POTÊNCIA E CONTROLE -->
+        <section id="fase-4">
+            <div class="section-title">
+                <span class="badge-b">POTÊNCIA & ESPORTE</span>
+                <h2>Velocidade e Coordenação</h2>
+            </div>
+
+            <div class="exercise-grid">
+
+                <!-- Tension Arc / Kicking -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://image.pollinations.ai/prompt/soccer%20player%20doing%20kicking%20exercise%20with%20resistance%20band%20gym?nologos=true" alt="Kicking Exercise" loading="lazy">
+                    </div>
+                    <div class="video-label">Vídeo Demonstrativo (Similiar)</div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/X98k60Ny_CE" title="Kicking Exercise" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="exercise-title">Tension Arc (Chute com Elástico)</div>
+                            <div class="reps-badge">3 x 15 (Velocidade)</div>
+                        </div>
+                        <div class="instructions">
+                            <strong>Posição:</strong> Em pé, elástico no tornozelo.
+                            <strong>Movimento:</strong> Realize um movimento de chute para frente/diagonal RÁPIDO (< 1 segundo) e volte controlando devagar (3 segundos).
+                            <strong>Foco:</strong> Potência. O movimento de ida deve ser explosivo, como um chute real.
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Abdominal Twist -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://image.pollinations.ai/prompt/man%20doing%20standing%20core%20twist%20resistance%20band%20exercise?nologos=true" alt="Abdominal Twist" loading="lazy">
+                    </div>
+                    <div class="video-label">Vídeo Demonstrativo</div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/D_HQMvbveG4" title="Abdominal Twist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="exercise-title">Torção de Tronco (Twist)</div>
+                            <div class="reps-badge">3 x 20 reps</div>
+                        </div>
+                        <div class="instructions">
+                            <strong>Posição:</strong> Em pé, de lado para o elástico, segurando com as duas mãos na altura do peito.
+                            <strong>Movimento:</strong> Gire o tronco para o lado oposto ao elástico, mantendo o quadril estável.
+                            <strong>Atenção:</strong> Braços levemente flexionados. O movimento vem do abdômen, não só dos braços.
+                        </div>
+                    </div>
+                </article>
+
+                <!-- One Leg Coordination -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://image.pollinations.ai/prompt/man%20doing%20single%20leg%20coordination%20exercise%20balance%20gym?nologos=true" alt="Single Leg Coordination" loading="lazy">
+                    </div>
+                    <div class="video-label">Vídeo Demonstrativo (Conceito)</div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/eyz2Kv0dLm0" title="Single Leg Balance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="exercise-title">Coordenação Unipodal ("Ski")</div>
+                            <div class="reps-badge">3 x 1 min</div>
+                        </div>
+                        <div class="instructions">
+                            <strong>Posição:</strong> Apoio em uma perna só, joelho levemente flexionado.
+                            <strong>Movimento:</strong> Simule o movimento de corrida ou esqui cross-country (braço e perna oposta balançando) enquanto mantém o equilíbrio na perna de base.
+                            <strong>Desafio:</strong> Tente manter o ritmo fluido sem tocar o pé livre no chão.
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Clínica Pace</h3>
+            <p>Elaborado por <strong>Vitor da Mata Vaz</strong> – Fisioterapeuta Esportivo</p>
+            <br>
+            <p style="font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; margin-top: 15px;">
+                Baseado no Protocolo Aspetar de Lesões de Adutores (Fases 3-4). A realização sem supervisão pode agravar lesões.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
